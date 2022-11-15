@@ -1,0 +1,18 @@
+# microcksId: Book Graph API : 1.0
+
+type Query {
+  allBooks: [Book]
+  getBook(id: ID!): Book
+}
+
+type Book {
+  id: ID!
+  title: String!
+  author: Author!
+}
+
+type Author {
+  id: ID!
+  name: String!
+  books: [Book]
+}

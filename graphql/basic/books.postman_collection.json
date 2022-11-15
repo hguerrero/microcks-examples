@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "4d0cabb5-bea1-4230-9943-3e1fa5ec77ad",
+		"name": "Book Graph API",
+		"description": "version=1.0 - A Graph API for querying books",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1456247"
+	},
+	"item": [
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "allBooks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query allBooks {\n    allBooks {\n        id\n        title\n    }\n}",
+								"variables": "{}"
+							}
+						},
+						"url": {
+							"raw": "http://allBooks",
+							"protocol": "http",
+							"host": [
+								"allBooks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "allBooks",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query allBooks {\n    allBooks {\n        id\n        title\n    }\n}",
+										"variables": "{}"
+									}
+								},
+								"url": {
+									"raw": "{{url}}",
+									"host": [
+										"{{url}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n  \"data\": {\n    \"allBooks\": [\n      {\n        \"id\": \"{{ $randomUUID  }}\",\n        \"title\": \"City of Glass\"\n      }\n    ]\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "getBook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query getBook ($id: ID!) {\n    getBook (id: $id) {\n        id\n        title\n    }\n}",
+								"variables": "{\n  \"id\": 0\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
